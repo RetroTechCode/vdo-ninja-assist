@@ -1,26 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import InformalLoungeLogo from "./assets/InformalLoungeLogo.webp";
+import injectPassword from "./helpers/injectPassword";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <img src={InformalLoungeLogo} height={128} width={128} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+      <h1>
+        Informal Lounge
+        <br /> VDO Ninja Assitant
+      </h1>
+      <form>
+        <input type="password" data-pid="123" className="largeTextEntry" />
+        <button type="submit" data-pid="123">
+          Submit
         </button>
+      </form>
+      <div className="card">
+        <button onClick={() => injectPassword()}>Get Started</button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
@@ -29,7 +28,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
