@@ -8,8 +8,40 @@
     "dev": "vite",
     "start": "electron dist-electron/main.js",
     "build": "tsc -b && vite build",
+    "dist": "npm run build && electron-builder",
     "lint": "eslint .",
     "preview": "vite preview"
+  },
+  "build": {
+    "appId": "com.informallounge.vdoninjaassist",
+    "files": [
+      "dist/**/*",
+      "dist-electron/main.js",
+      "dist-electron/preload.js",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -26,6 +58,7 @@
     "@vitejs/plugin-react": "^4.5.2",
     "chokidar": "^4.0.3",
     "electron": "^37.2.0",
+    "electron-builder": "^26.0.12",
     "eslint": "^9.29.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
